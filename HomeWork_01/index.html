@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW_01</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> 
+</head>
+<body>
+    <div id="app">
+        <!-- Задания по Vue
+
+        1. Создать кнопку "Перевернуть". При клике на кнопку текст кнопки должен перевернуться и отобразиться в обратном порядке.
+        2. Есть список элементов. Пользователь может добавлять новые элементы списка с текстом “Новый элемент списка” нажав на кнопку "Добавить".
+        3. *Дополнительное задание: При клике на элемент списка он должен быть удален. (по желанию) -->
+
+        <button @click="reverseButtonText" class="btn">{{buttonText}}</button>
+        <div><button @click="addNewElementToList" class="btn">Добавить</button>
+            <ul class="list">
+                <li v-for="element in listOfElements" @click="deleteElementFromList">{{element}}</li>
+            </ul>
+        </div>      
+        
+        
+        <script>
+            const app = {
+                data() {
+                    return {
+                        buttonText: 'Перевернуть',
+                        listOfElements: ['Элемент 1', 'Элемент 2', 'Элемент 3'],
+                        newElement: 'Новый элемент списка'
+                    };
+                },
+                methods: {
+                    reverseButtonText() { //метод отображает в обратном порядке текст на кнопке
+                        this.buttonText = this.buttonText.split('').reverse().join('');
+                    },
+                    addNewElementToList() { // метод добавления нового элемента
+                            this.listOfElements.push(this.newElement);
+                    },
+                    deleteElementFromList(event) { // метод удаления элемента из списка
+                        event.target.remove();
+                    }
+                }
+            }
+            Vue.createApp(app).mount("#app");
+        </script>
+        
+    </div>
+</body>
+</html>
