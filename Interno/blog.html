@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Lato:wght@300;400;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Jost&family=Lato:wght@300;400;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    
+</head>
+
+<body>
+    <header class="header center">
+        <nav class="header__left">
+            <a class="header__logo" href="main.html">
+                <img src="img/header_logo.svg" width="34" height="34" alt="logo">
+                <span class="header__left__text">Interno</span>
+            </a>
+        </nav>
+        <nav class="header__right">
+            <a class="header__right__link" href="#">Home</a>
+            <a class="header__right__link" href="#">Project</a>
+            <a class="header__right__link" href="blog.html">Blog</a>
+        </nav>
+    </header>
+    <main>
+        <section class="blog__top__content">
+            <div class="blog__top__content__box">
+                <h1 class="blog__top__content__box__header">Articles & News</h1>
+                <p class="blog__top__content__box__text">Home / Blog</p>
+            </div>
+        </section>
+        <section class="blog__mid__content center">
+            <h1 class="blog__mid__content__header">Latest Post</h1>
+            <div class="blog__mid__content__box">
+                <img class="blog__mid__content__box__img" src="img/blog_latest_post.png" alt="photo">
+                <div class="blog__mid__content__box__right">
+                    <h1 class="blog__mid__content__box__right__header">Low Cost Latest Invented Interior Designing Ideas
+                    </h1>
+                    <p class="blog__mid__content__box__right__text">Lorem ipsum dolor sit amet, adipiscing Aliquam eu
+                        sem vitae turpis dignissim maximus.posuere in.Contrary to popular belief. Lorem Ipsum is not
+                        simply random text. It has roots in a piece of classica.</p>
+                    <div class="blog__mid__content__box__right__bottom">
+                        <p class="blog__mid__content__box__right__bottom__text">26 December,2022</p>
+                        <a href="#"><img src="img/arrow.svg" alt="arrow"></a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <div id ="app">
+        <section class="blog__bottom__content center" id="app">
+            <h1 class="blog__bottom__content__header">Articles & News</h1>
+            
+                <div class="blog__cards">
+                <div class="design__card" v-for="{id, img, text,header,date,arrow} in cards" :key="id">
+                    <img class="design__img" :src="img" alt="design">
+                    <p class="design__text">{{text}}</p>
+                    <h2 class="design__card__header">{{header}}</h2>
+                    <div class="design__card__bottom">
+                        <p class="design__card__date">{{date}}</p>
+                        <a href="#"><img :src="arrow" alt="arrow"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+            <nav>
+                <ul class="pagination">
+                    <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="53" height="52" viewBox="0 0 53 52"
+                                fill="none">
+                                <circle cx="26.5" cy="26" r="25.5" stroke="#CDA274" />
+                            </svg><span class="pagination__number">01</span></a></li>
+                    <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="53" height="52" viewBox="0 0 53 52"
+                                fill="none">
+                                <circle cx="26.5" cy="26" r="25.5" stroke="#CDA274" />
+                            </svg><span class="pagination__number">02</span></a></li>
+                    <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="53" height="52" viewBox="0 0 53 52"
+                                fill="none">
+                                <circle cx="26.5" cy="26" r="25.5" stroke="#CDA274" />
+                            </svg><span class="pagination__number">03</span></a></li>
+                    <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="53" height="52" viewBox="0 0 53 52"
+                                fill="none">
+                                <circle cx="26.5" cy="26" r="25.5" stroke="#CDA274" />
+                                <path d="M23.5571 32L29.5 25.3143L23.5571 18.6286" stroke="#292F36" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg></a></li>
+                </ul>
+            </nav>
+        </section>
+
+    </main>
+    <footer class="footer__bottom center">
+        <div class="Interno">
+            <h2 class="footer__bottom__header"><img src="img/header_logo.svg" alt="logo">Interno</h2>
+            <p class="footer__bottom__text">It is a long established fact that a reader will be distractedv
+                lookings.</p>
+        </div>
+        <div class="pages">
+            <h2 class="pages__contacts__header">Pages</h2>
+            <a class="pages__contacts__text" href="#">Home</a>
+            <a class="pages__contacts__text" href="#">Project</a>
+            <a class="pages__contacts__text" href="blog.html">Blog</a>
+        </div>
+        <div class="contacts">
+            <h2 class="pages__contacts__header">Contacts</h2>
+            <p class="pages__contacts__text">55 East Birchwood Ave. Brooklyn, New York 11201 contact@interno.com (123)
+                456 - 7890</p>
+        </div>
+
+    </footer>
+    <script>
+        const app = {
+            data() {
+                return {
+                    cards: 
+                        [
+                            {   
+                                id: 1,
+                                img: 'img/design1.png',
+                                text: 'Kitchan Design',
+                                header: 'Let’s Get Solution For Building Construction Work',
+                                date: '26 December,2022 ',
+                                arrow: 'img/arrow.svg',
+                            },
+                            {
+                                id: 2,
+                                img: 'img/design2.png',
+                                text: 'Living Design',
+                                header: 'Low Cost Latest Invented Interior Designing Ideas',
+                                date: '22 December,2022 ',
+                                arrow: 'img/arrow.svg',
+                            },
+                            {
+                                id: 3,
+                                img: 'img/design3.png',
+                                text: 'Interior Design',
+                                header: 'Best For Any Office & Business Interior Solution',
+                                date: '25 December,2022 ',
+                                arrow: 'img/arrow.svg',
+                            },
+                            {
+                                id: 4,
+                                img: 'img/design4.png',
+                                text: 'Kitchan Design',
+                                header: 'Let’s Get Solution For Building Construction Work',
+                                date: '26 December,2022',
+                                arrow: 'img/arrow.svg',
+                            },
+                            {
+                                id: 5,
+                                img: 'img/design5.png',
+                                text: 'Living Design',
+                                header: 'Low Cost Latest Invented Interior Designing Ideas',
+                                date: '22 December,2022',
+                                arrow: 'img/arrow.svg',
+                            },
+                            {
+                                id: 6,
+                                img: 'img/design6.png',
+                                text: 'Interior Design',
+                                header: 'Best For Any Office & Business Interior Solution',
+                                date: '25 December,2022',
+                                arrow: 'img/arrow.svg',
+                            }
+                        ],
+                };
+            },
+            methods: {
+            },
+        };
+        Vue.createApp(app).mount("#app");
+    </script>
+</body>
+
+</html>
