@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Lato:wght@300;400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Jost&family=Lato:wght@300;400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="header center">
+      <nav class="header__left">
+        <a class="header__logo" href="main.html">
+          <img src="img/header_logo.svg" width="34" height="34" alt="logo" />
+          <span class="header__left__text">Interno</span>
+        </a>
+      </nav>
+      <nav class="header__right">
+        <a class="header__right__link" href="#">Home</a>
+        <a class="header__right__link" href="#">Project</a>
+        <a class="header__right__link" href="blog.html">Blog</a>
+      </nav>
+    </header>
+    <main id="app">
+      <section class="blogDetails__top__content"></section>
+      <section class="blogDetails__mid__content center">
+        <div class="blogDetails__mid__content__right">
+          <h1 class="blogDetails__mid__content__right__header">
+            Let’s Get Solution for Building Construction Work
+          </h1>
+          <img
+            class="blogDetails__mid__content__right__img"
+            src="img/blogDetaisImg1.png"
+            alt="photo"
+          />
+          <div class="blogDetails__mid__content__right__datelinks">
+            <p class="blogDetails__mid__content__right__datelinks__date">
+              26 December,2022
+            </p>
+            <ul class="blogDetails__mid__content__right__datelinks__links">
+              <li><a href="#">Interior</a></li>
+              <li><a href="main.html">Home</a></li>
+              <li><a href="#">Decore</a></li>
+            </ul>
+          </div>
+          <component :is="changeTabs"></component>
+        </div>
+        <div class="blogDetails__mid__content__left">
+          <h3 class="blogDetails__mid__content__left__header">Tags</h3>
+
+          <div class="blogDetails__mid__content__left__buttons">
+            <button
+              class="blogDetails__mid__content__left__button"
+              @click="currentTab=nameButton"
+              v-for="nameButton in nameButtons"
+              :key="nameButton.id"
+            >
+              {{nameButton}}
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer__bottom center">
+      <div class="Interno">
+        <h2 class="footer__bottom__header">
+          <img src="img/header_logo.svg" alt="logo" />Interno
+        </h2>
+        <p class="footer__bottom__text">
+          It is a long established fact that a reader will be distractedv
+          lookings.
+        </p>
+      </div>
+      <div class="pages">
+        <h2 class="pages__contacts__header">Pages</h2>
+        <a class="pages__contacts__text" href="#">Home</a>
+        <a class="pages__contacts__text" href="">Project</a>
+        <a class="pages__contacts__text" href="blog.html">Blog</a>
+      </div>
+      <div class="contacts">
+        <h2 class="pages__contacts__header">Contacts</h2>
+        <p class="pages__contacts__text">
+          55 East Birchwood Ave. Brooklyn, New York 11201 contact@interno.com
+          (123) 456 - 7890
+        </p>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="components.js"></script>
+
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          nameButtons: [
+            "Kitchen",
+            "Bedroom",
+            "Building",
+            "Architecture",
+            "Kitchen-Planning",
+            "Bedroom",
+          ],
+          currentTab: "none",
+        },
+        methods: {},
+        computed: {
+          changeTabs() {
+            return `change-${this.currentTab}`;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

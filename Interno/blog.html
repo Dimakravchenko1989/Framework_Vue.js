@@ -56,13 +56,12 @@
                     </div>
                 </div>
             </div>
-
         </section>
-        <div id ="app">
+
         <section class="blog__bottom__content center" id="app">
             <h1 class="blog__bottom__content__header">Articles & News</h1>
             
-                <div class="blog__cards">
+            <div class="blog__cards">
                 <div class="design__card" v-for="{id, img, text,header,date,arrow} in cards" :key="id">
                     <img class="design__img" :src="img" alt="design">
                     <p class="design__text">{{text}}</p>
@@ -73,7 +72,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
             
             <nav>
                 <ul class="pagination">
